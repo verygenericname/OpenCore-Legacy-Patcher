@@ -1,6 +1,6 @@
 # OpenCore Legacy Patcher changelog
 
-## 0.4.11
+## 0.5.0
 - Enable AppleMCEReporterDisabler whenever spoofing affected SMBIOS
   - ie. iMacPro1,1, MacPro6,1 and MacPro7,1
 - Verify host's disk space before downloading macOS Installers
@@ -9,6 +9,37 @@
 - Implement deeper macOS installer parsing
   - Provides better version detection than Apple provides in .app
 - Ensure WhateverGreen is always installed on Mac Pro configurations
+
+
+- Ventura Specific Updates:
+  - Switch boot.efi model patch to iMac18,1
+  - Resolve pre-Force Touch Trackpad support in Ventura
+  - Add Ventura-dropped Models:
+    - MacPro6,1
+    - Macmini7,1
+    - iMac16,x, iMac17,1
+    - MacBook9,1
+    - MacBookAir7,x
+    - MacBookPro11,4/5, MacBookPro12,1, MacBookPro13,x
+  - Add Ventura Software Catalog parsing
+  - Add Kernel Debug Kit checks to Ventura root patching
+  - Add USB map injection for dropped models
+  - Resolve Ethernet support on MacPro3,1-5,1
+  - Fix VMM patch set
+  - Allow dyld shared cache swapping on pre-Haswell
+  - Fix MouSSE/SSE4,2 emulation in macOS 13.0 Beta 3 (22A5295h)
+  - Graphics Acceleration for legacy Metal GPUs
+    - Intel: Ivy Bridge, Haswell, Broadwell and Skylake
+    - Nvidia: Kepler
+    - AMD: GCN 1 through 3
+  - Raise SIP requirement to 0xA03 for root patching
+  - Add Ventura Boot Picker icons
+- Increment Binaries:
+  - OpenCorePkg 0.8.3 release
+  - Lilu 1.6.2 - release
+  - FeatureUnlock 1.0.9 release
+  - PatcherSupportPkg 0.6.1 - release
+  - BrcmPatchRAM 2.6.3 - release
 
 ## 0.4.10
 - Resolve Nvidia Kepler support in macOS 12.5 Beta 3 and newer
@@ -64,7 +95,6 @@
 - Deprecate TUI support
   - Users may still manually run from source for future builds
   - Binaries will no longer be provided on future release
-- Switch boot.efi model patch to iMac18,1
 
 ## 0.4.5
 - Fix AutoPatcher.pkg download on releases

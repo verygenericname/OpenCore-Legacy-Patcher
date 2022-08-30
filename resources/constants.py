@@ -12,8 +12,8 @@ from data import os_data
 class Constants:
     def __init__(self):
         # Patcher Versioning
-        self.patcher_version = "0.4.11"  # OpenCore-Legacy-Patcher
-        self.patcher_support_pkg_version = "0.5.2"  #  PatcherSupportPkg
+        self.patcher_version = "0.5.0"  # OpenCore-Legacy-Patcher
+        self.patcher_support_pkg_version = "0.6.1"  #  PatcherSupportPkg
         self.url_patcher_support_pkg = "https://github.com/dortania/PatcherSupportPkg/releases/download/"
         self.nightly_url_patcher_support_pkg = "https://nightly.link/dortania/PatcherSupportPkg/workflows/build/master/"
         self.discord_link = "https://discord.gg/rqdPgH8xSN"
@@ -26,23 +26,23 @@ class Constants:
 
         # OpenCore Versioning
         # https://github.com/acidanthera/OpenCorePkg
-        self.opencore_commit = "30798fb - 04-18-2022"
-        self.opencore_version = "0.8.0"
+        self.opencore_commit = "30acb57 - 07-07-2022"
+        self.opencore_version = "0.8.3"
 
         # Kext Versioning
         ## Acidanthera
         ## https://github.com/acidanthera
-        self.lilu_version = "1.6.0"  #               Lilu
+        self.lilu_version = "1.6.2"  #               Lilu
         self.whatevergreen_version = "1.5.8"  #      WhateverGreen
         self.airportbcrmfixup_version = "2.1.3"  #   AirPortBrcmFixup
         self.nvmefix_version = "1.0.9"  #            NVMeFix
         self.applealc_version = "1.6.3"  #           AppleALC
         self.restrictevents_version = "1.0.6"  #     RestrictEvents
         self.restrictevents_mbp_version = "1.0.6"  # RestrictEvents blocking displaypolicyd (see RestrictEvents-MBP91.patch)
-        self.featureunlock_version = "1.0.8"  #      FeatureUnlock
+        self.featureunlock_version = "1.0.9"  #      FeatureUnlock
         self.debugenhancer_version = "1.0.4"  #      DebugEnhancer
         self.cpufriend_version = "1.2.5"  #          CPUFriend
-        self.bluetool_version = "2.6.2"  #           BlueToolFixup (BrcmPatchRAM)
+        self.bluetool_version = "2.6.3"  #           BlueToolFixup (BrcmPatchRAM)
         self.cslvfixup_version = "2.6.1"  #          CSLVFixup
         self.autopkg_version = "1.0.0"  #            AutoPkgInstaller
 
@@ -58,6 +58,9 @@ class Constants:
         self.apfs_zlib_version = "12.3.1"  #   NoAVXFSCompressionTypeZlib
         self.multitouch_version = "1.0.0"  #   AppleUSBMultitouch
         self.topcase_version = "1.0.0"  #      AppleUSBTopCase
+        self.intel_82574l_version = "1.0.0" #  Intel82574L
+        self.intel_8254x_version = "1.0.0" #   AppleIntel8254XEthernet
+        self.apple_usb_11_injector = "1.0.0" # AppleUSBUHCI/OHCI
 
         ## Apple - Dortania Modified
         self.bcm570_version = "1.0.2"  #             CatalinaBCM5701Ethernet
@@ -77,8 +80,8 @@ class Constants:
         ## Syncretic
         ## https://forums.macrumors.com/members/syncretic.1173816/
         ## https://github.com/reenigneorcim/latebloom
-        self.mousse_version = "0.95"  #      MouSSE
-        self.telemetrap_version = "1.0.0"  # telemetrap
+        self.mousse_version = "0.95-Dortania"  # MouSSE
+        self.telemetrap_version = "1.0.0"  #     telemetrap
 
         ## cdf
         ## https://github.com/cdf/Innie
@@ -302,6 +305,18 @@ class Constants:
     @property
     def nforce_path(self):
         return self.payload_kexts_path / Path(f"Ethernet/nForceEthernet-v{self.nforce_version}.zip")
+
+    @property
+    def intel_82574l_path(self):
+        return self.payload_kexts_path / Path(f"Ethernet/Intel82574L-v{self.intel_82574l_version}.zip")
+
+    @property
+    def intel_8254x_path(self):
+        return self.payload_kexts_path / Path(f"Ethernet/AppleIntel8254XEthernet-v{self.intel_8254x_version}.zip")
+
+    @property
+    def apple_usb_11_injector_path(self):
+        return self.payload_kexts_path / Path(f"USB/USB1.1-Injector-v{self.apple_usb_11_injector}.zip")
 
     @property
     def mce_path(self):

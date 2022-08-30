@@ -185,3 +185,6 @@ class generate_defaults:
         nv_web_status = global_settings.global_settings().read_property("Force_Web_Drivers")
         if nv_web_status is True:
             settings.force_nv_web = True
+
+        if model in model_array.ModernGPU:
+            settings.disable_cs_lv = True
